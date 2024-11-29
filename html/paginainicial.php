@@ -37,7 +37,7 @@
 
             <div>
                 <label for="endereco">Endereço</label>
-                <input type="text" id="endereco" name="endereco" required disabled>
+                <input type="text" id="endereco" name="endereco" required >
             </div>
 
             <div>
@@ -47,17 +47,17 @@
 
             <div>
                 <label for="bairro">Bairro</label>
-                <input type="text" id="bairro" name="bairro" required disabled>
+                <input type="text" id="bairro" name="bairro" required >
             </div>
 
             <div>
                 <label for="cidade">Cidade</label>
-                <input type="text" id="cidade" name="cidade" required disabled>
+                <input type="text" id="cidade" name="cidade" required >
             </div>
 
             <div>
                 <label for="estado">Estado</label>
-                <input id="estado" name="estado" required disabled>
+                <input id="estado" name="estado" required>
             </div>
             
             <div>

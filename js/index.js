@@ -35,7 +35,7 @@ cepCadastro.addEventListener('input', async function () {
         const dados = await buscarCEP(cep);
 
         if (dados) {
-            document.getElementById('logradouro').value = dados.logradouro;
+            document.getElementById('endereco').value = dados.logradouro;
             document.getElementById('bairro').value = dados.bairro;
             document.getElementById('cidade').value = dados.localidade;
             document.getElementById('estado').value = dados.uf;
@@ -157,7 +157,7 @@ function limparCampos(){
     document.getElementById("sexo").value = '';
     document.getElementById("profissao").value = '';
     document.getElementById("cep").value = '';
-    document.getElementById("logradouro").value = '';
+    document.getElementById("endereco").value = '';
     document.getElementById("numero").value = '';
     document.getElementById("bairro").value = '';
     document.getElementById("cidade").value = '';

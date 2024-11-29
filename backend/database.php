@@ -19,16 +19,15 @@ function criarTabela($conn) {
         nome VARCHAR(100) NOT NULL,
         email VARCHAR(100) NOT NULL,
         endereco VARCHAR(255) NOT NULL,
-        logradouro VARCHAR(100),
-        numero VARCHAR(10),
-        bairro VARCHAR(100),
-        cidade VARCHAR(100),
-        estado VARCHAR(50),
-        cep VARCHAR(20),
-        celular VARCHAR(20),
-        sexo VARCHAR(10),
-        cpf VARCHAR(14),
-        profissao VARCHAR(100)
+        numero VARCHAR(10)NOT NULL,
+        bairro VARCHAR(100)NOT NULL,
+        cidade VARCHAR(100)NOT NULL,
+        estado VARCHAR(50)NOT NULL,
+        cep VARCHAR(20)NOT NULL,
+        celular VARCHAR(20)NOT NULL,
+        sexo VARCHAR(10)NOT NULL,
+        cpf VARCHAR(14)NOT NULL,
+        profissao VARCHAR(100) NOT NULL
     )";
     $conn->query($sql);
 }
@@ -42,7 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $endereco = $_POST['endereco'];
-    $logradouro = $_POST['logradouro'];
     $numero = $_POST['numero'];
     $bairro = $_POST['bairro'];
     $cidade = $_POST['cidade'];
@@ -54,9 +52,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $profissao = $_POST['profissao'];
 
     // Preparar a consulta SQL usando prepared statement
-    $stmt = $conn->prepare("INSERT INTO aps (nome, email, endereco, logradouro, numero, bairro, cidade, estado, cep, celular, sexo, cpf, profissao)
-                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssssssssss", $nome, $email, $endereco, $logradouro, $numero, $bairro, $cidade, $estado, $cep, $celular, $sexo, $cpf, $profissao);
+    $stmt = $conn->prepare("INSERT INTO aps (nome, email, endereco,  numero, bairro, cidade, estado, cep, celular, sexo, cpf, profissao)
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssssssss", $nome, $email, $endereco, $numero, $bairro, $cidade, $estado, $cep, $celular, $sexo, $cpf, $profissao);
 
     // Executar a consulta
     if ($stmt->execute()) {
